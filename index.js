@@ -1,5 +1,19 @@
 require('dotenv').config();
 
+// Servidor web para mantener vivo el bot en Render
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('✅ El bot está activo');
+});
+
+app.listen(port, () => {
+  console.log(`🌐 Servidor web escuchando en el puerto ${port}`);
+});
+
+
 const { Client, GatewayIntentBits } = require('discord.js');
 const { initializeApp } = require('firebase/app');
 const { getFirestore, doc, setDoc } = require('firebase/firestore');
