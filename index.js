@@ -13,7 +13,6 @@ app.listen(port, () => {
   console.log(`🌐 Servidor web escuchando en el puerto ${port}`);
 });
 
-
 const { Client, GatewayIntentBits } = require('discord.js');
 const { initializeApp } = require('firebase/app');
 const { getFirestore, doc, setDoc } = require('firebase/firestore');
@@ -30,8 +29,8 @@ const firebaseConfig = {
 };
 
 // Inicializar Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const firebaseApp = initializeApp(firebaseConfig); // ✅ Renombrado para evitar conflicto
+const db = getFirestore(firebaseApp);
 
 // Crear el cliente de Discord
 const client = new Client({
@@ -68,4 +67,3 @@ client.on('messageCreate', async (message) => {
 
 // Iniciar sesión con el token del bot
 client.login(process.env.TOKEN);
-
