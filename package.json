@@ -16,5 +16,8 @@
     "url": "https://github.com/V3iiz/bot-fecha/issues"
   },
   "homepage": "https://github.com/V3iiz/bot-fecha#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
 }
